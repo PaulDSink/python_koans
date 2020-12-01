@@ -78,17 +78,17 @@ world!
         hi = "Hello, "
         there = "world"
         hi += there
-        self.assertEqual("world", hi)
+        self.assertEqual("Hello, world", hi)
 
     def test_plus_equals_also_leaves_original_string_unmodified(self):
         original = "Hello, "
         hi = original
         there = "world"
         hi += there
-        self.assertEqual(True, original)
+        self.assertEqual("Hello, ", original)
 
     def test_most_strings_interpret_escape_characters(self):
         string = "\n"
         self.assertEqual('\n', string)
         self.assertEqual("""\n""", string)
-        self.assertEqual(__, len(string))
+        self.assertEqual(1, len(string))
