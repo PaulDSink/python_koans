@@ -23,7 +23,7 @@ class AboutStringManipulation(Koan):
         decimal_places = 4
         string = "The square root of 5 is {0:.{1}f}".format(math.sqrt(5),
             decimal_places)
-        self.assertEqual(2.2361, string)
+        self.assertEqual("The square root of 5 is 2.2361", string)
 
     def test_you_can_get_a_substring_from_a_string(self):
         string = "Bacon, lettuce and tomato"
@@ -34,7 +34,7 @@ class AboutStringManipulation(Koan):
         self.assertEqual('a', string[1])
 
     def test_single_characters_can_be_represented_by_integers(self):
-        self.assertEqual(1, ord('a'))
+        self.assertEqual(97, ord('a'))
         self.assertEqual(True, ord('b') == (ord('a') + 1))
 
     def test_strings_can_be_split(self):
@@ -57,8 +57,8 @@ class AboutStringManipulation(Koan):
     def test_raw_strings_do_not_interpret_escape_characters(self):
         string = r'\n'
         self.assertNotEqual('\n', string)
-        self.assertEqual('\n', string)
-        self.assertEqual(1, len(string))
+        self.assertEqual('\\n', string)
+        self.assertEqual(2, len(string))
 
         # Useful in regular expressions, file paths, URLs, etc.
 

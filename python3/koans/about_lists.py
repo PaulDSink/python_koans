@@ -31,19 +31,19 @@ class AboutLists(Koan):
 
         self.assertEqual('peanut', noms[0])
         self.assertEqual('jelly', noms[3])
-        self.assertEqual(None, noms[-1])
-        self.assertEqual(None, noms[-3])
+        self.assertEqual('jelly', noms[-1])
+        self.assertEqual('butter', noms[-3])
 
     def test_slicing_lists(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
 
-        self.assertEqual('peanut', noms[0:1])
+        self.assertEqual(['peanut'], noms[0:1])
         self.assertEqual(['peanut', 'butter'], noms[0:2])
-        self.assertEqual(None, noms[2:2])
-        self.assertEqual(None, noms[2:20])
-        self.assertEqual(None, noms[4:0])
-        self.assertEqual(None, noms[4:100])
-        self.assertEqual(None, noms[5:0])
+        self.assertEqual([], noms[2:2])
+        self.assertEqual(['and', 'jelly'], noms[2:20])
+        self.assertEqual([], noms[4:0])
+        self.assertEqual([], noms[4:100])
+        self.assertEqual([], noms[5:0])
 
     def test_slicing_to_the_edge(self):
         noms = ['peanut', 'butter', 'and', 'jelly']
@@ -55,12 +55,12 @@ class AboutLists(Koan):
         self.assertEqual(range, type(range(5)))
         self.assertNotEqual([1, 2, 3, 4, 5], range(1,6))
         self.assertEqual([0, 1, 2, 3, 4], list(range(5)))
-        self.assertEqual([4, 5, 6, 7], list(range(5, 9)))
+        self.assertEqual([5, 6, 7, 8], list(range(5, 9)))
 
     def test_ranges_with_steps(self):
-        self.assertEqual(None, list(range(5, 3, -1)))
+        self.assertEqual([5, 4], list(range(5, 3, -1)))
         self.assertEqual([0, 2, 4, 6], list(range(0, 8, 2)))
-        self.assertEqual([1, 4], list(range(1, 8, 3)))
+        self.assertEqual([1, 4, 7], list(range(1, 8, 3)))
         self.assertEqual([5, 1, -3], list(range(5, -7, -4)))
         self.assertEqual([5, 1, -3, -7], list(range(5, -8, -4)))
 
